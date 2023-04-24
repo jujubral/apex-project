@@ -5,6 +5,7 @@ on:
  pull_request:
    branches: [ master ]
    
+
 jobs:
  conviso-sast:
    runs-on: ubuntu-latest
